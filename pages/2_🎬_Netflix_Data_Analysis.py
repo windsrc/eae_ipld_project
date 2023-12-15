@@ -102,7 +102,12 @@ year = cols2[0].number_input("Select a year:", min_year, max_year, 2005)
 
 # TODO: Ex 2.6: For a given year, get the Pandas Series of how many movies and series 
 # combined were made by every country, limit it to the top 10 countries.
-top_10_countries = None
+filtered_movies_df = movies_df[movies_df["release_year"] == year]
+split_countries = filtered_movies_df["country"].str.split(", ")
+exploded_countries = split_countries.explode()
+combined_counts = exploded_countries.value_counts()
+
+top_10_countries = combined_counts.head(10)
 
 # print(top_10_countries)
 if top_10_countries is not None:
@@ -122,12 +127,16 @@ st.write("##")
 st.header("Avg Duration of Movies by Year")
 
 # TODO: Ex 2.7: Make a line chart of the average duration of movies (not TV shows) in minutes for every year across all the years. 
-movies_avg_duration_per_year = None
+filtered_movies_df = movies_df[movies_df["type"] == "Movie"]
+movies_df["movie_duration"] = movies_df["duration"].apply(lambda x: int(x.split(" ")[0]))
+filtered_movies_df = movies_df[movies_df["type"] == "Movie"]
+
+movies_avg_duration_per_year = filtered_movies_df.groupby("release_year")["movie_duration"].mean()
 
 if movies_avg_duration_per_year is not None:
     fig = plt.figure(figsize=(9, 6))
 
-    # plt.plot(...# TODO: generate the line plot using plt.plot() and the information from movies_avg_duration_per_year (the vertical axes with the minutes value) and its index (the horizontal axes with the years)
+    plt.plot(movies_avg_duration_per_year.index, movies_avg_duration_per_year)# plt.plot(...# TODO: generate the line plot using plt.plot() and the information from movies_avg_duration_per_year (the vertical axes with the minutes value) and its index (the horizontal axes with the years)
 
     plt.title("Average Duration of Movies Across Years")
 
