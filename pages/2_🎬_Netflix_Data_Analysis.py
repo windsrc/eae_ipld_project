@@ -31,8 +31,8 @@ st.divider()
 def load_data():
     data_path = "data/netflix_titles.csv"
 
-    movies_df = None  # TODO: Ex 2.1: Load the dataset using Pandas, use the data_path variable and set the index column to "show_id"
-
+    movies_df = pd.read_csv(data_path)  # TODO: Ex 2.1: Load the dataset using Pandas, use the data_path variable and set the index column to "show_id"
+    movies_df.set_index("show_id", inplace=True)
     return movies_df   # a Pandas DataFrame
 
 
@@ -46,17 +46,37 @@ with st.expander("Check the complete dataset:"):
 # ----- Extracting some basic information from the dataset -----
 
 # TODO: Ex 2.2: What is the min and max release years?
-min_year = None
-max_year = None
+min_year = movies_df["release_year"].min()
+max_year = movies_df["release_year"].max()
 
 # TODO: Ex 2.3: How many director names are missing values (NaN)?
-num_missing_directors = None
+num_missing_directors = movies_df["director"].isna().sum()
 
 # TODO: Ex 2.4: How many different countries are there in the data?
-n_countries = None
+def create_unique_list(df,filter):
+    unique_elements = df[filter].fillna("Unknown").unique()
+    unique_elements_set = {"Unknown"}
+    for element in unique_elements:
+        if ", " in element:
+            element_list = element.split(", ")
+            for element in element_list:
+                unique_elements_set.add(element)
+        else:
+            unique_elements_set.add(element)
+    
+    if "" in unique_elements_set:
+        unique_elements_set.remove("")
+    return unique_elements_set
+
+unique_contries = create_unique_list(movies_df,"country")
+
+n_countries = len(unique_contries)
 
 # TODO: Ex 2.5: How many characters long are on average the title names?
-avg_title_length = None
+def count_letters(title):
+    return len(title)
+movies_df["title_lenght"] = movies_df["title"].apply(count_letters)
+avg_title_length = movies_df["title_lenght"].mean()
 
 
 # ----- Displaying the extracted information metrics -----
