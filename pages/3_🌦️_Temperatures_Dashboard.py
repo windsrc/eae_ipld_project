@@ -68,18 +68,21 @@ def create_unique_list(df,filter):
 unique_countries_list = create_unique_list(temps_df,"Country")
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
-min_date = None
-max_date = None
+min_date = temps_df["Date"].min()
+max_date = temps_df["Date"].max() 
 
 # TODO:  Ex 3.5: What are the global minimum and maximum temperatures? Find the city and the date of each of them.
-min_temp = None
-max_temp = None
+min_temp = temps_df["AvgTemperatureCelsius"].min()  # TODO
+max_temp = temps_df["AvgTemperatureCelsius"].max()  # TODO
 
-min_temp_city = None
-min_temp_date = None
+min_temp_index = temps_df["AvgTemperatureCelsius"].idxmin()
+max_temp_index = temps_df["AvgTemperatureCelsius"].idxmax()
 
-max_temp_city = None
-max_temp_date = None
+min_temp_city = temps_df.loc[min_temp_index, "City"]  # TODO
+min_temp_date = temps_df.loc[min_temp_index, "Date"]  # TODO
+
+max_temp_city = temps_df.loc[max_temp_index, "City"]  # TODO
+max_temp_date = temps_df.loc[max_temp_index, "Date"]  # TODO
 
 
 # ----- Displaying the extracted information metrics -----
