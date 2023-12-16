@@ -55,7 +55,17 @@ temps_df["AvgTemperatureCelsius"] = temps_df["AvgTemperatureFahrenheit"].apply(l
 # ----- Extracting some basic information from the dataset -----
 
 # TODO: Ex 3.3: How many different cities are there? Provide a list of them.
-unique_countries_list = None
+def create_unique_list(df,filter):
+    unique_elements = df[filter]
+    unique_elements_set = {"Argentina"}
+    for element in unique_elements:
+        unique_elements_set.add(element)
+    
+    if "" in unique_elements_set:
+        unique_elements_set.remove("")
+    return unique_elements_set
+
+unique_countries_list = create_unique_list(temps_df,"Country")
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
 min_date = None
