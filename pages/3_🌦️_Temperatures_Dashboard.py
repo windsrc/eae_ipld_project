@@ -169,9 +169,9 @@ if unique_countries_list is not None and len(selected_cities) > 0:
         city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]   # TODO
         plt.hist(city_df_period["AvgTemperatureCelsius"], label=city, bins=20)           # TODO
 
-    #plt.title("Temperatures in selected cities")    # TODO
-    #plt.xlabel("Temperatur")                        # TODO
-    #plt.ylabel("Frequency")                         # TODO
+    plt.title("Temperatures in selected cities")    # TODO
+    plt.xlabel("Temperatur")                        # TODO
+    plt.ylabel("Frequency")                         # TODO
 
     plt.legend()
 
