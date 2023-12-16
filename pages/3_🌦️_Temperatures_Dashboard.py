@@ -134,13 +134,14 @@ if unique_countries_list is not None and len(selected_cities) > 0:
 
     fig = plt.figure(figsize=(10, 5))
 
-    # for city in selected_cities:
-    #     city_df = None            # TODO
-    #     city_df_period = None     # TODO
-    #     plt.plot()                # TODO 
-    # plt.title()   # TODO
-    # plt.xlabel()  # TODO
-    # plt.ylabel()  # TODO
+    for city in selected_cities:
+        city_df = temps_df[temps_df["City"] == city]                                                   
+        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]       
+        plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=city)         
+
+    plt.title("Temperatures in selected cities") 
+    plt.xlabel("Date") 
+    plt.ylabel("Temperatur") 
 
     plt.legend()
     
@@ -153,14 +154,14 @@ if unique_countries_list is not None and len(selected_cities) > 0:
 
     fig = plt.figure(figsize=(10, 5))
 
-    # for city in selected_cities:
-    #     city_df = None            # TODO
-    #     city_df_period = None     # TODO
-    #     plt.hist()                # TODO
+    for city in selected_cities:
+        city_df = temps_df[temps_df["City"] == city]
+        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]    
+        plt.hist(city_df_period["AvgTemperatureCelsius"], label=city, bins=20, alpha=0.8)
 
-    # plt.title()   # TODO
-    # plt.xlabel()  # TODO
-    # plt.ylabel()  # TODO
+    plt.title("Temperatures in selected cities")  
+    plt.xlabel("Temperatur") 
+    plt.ylabel("Frequency")
 
     plt.legend()
 
