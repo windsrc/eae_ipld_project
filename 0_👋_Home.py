@@ -11,7 +11,7 @@ st.set_page_config(
 
 # ----- Left menu -----
 with st.sidebar:
-    st.image("PXL_20230526_061757514.MP.jpg", width=200)
+    st.image("eae_img.png", width=200)
     st.header("Introduction to Programming Languages for Data")
     st.write("###")
     st.write("***Final Project - Dec 2023***")
@@ -24,7 +24,7 @@ st.write(f"""<div style="text-align: center;"><h1 style="text-align: center;">�
 
 
 # ----- Profile image file -----
-profile_image_file_path = "profile_image.png"       # TODO: Upload your profile image to the same folder as this script and update this if it has a different name
+profile_image_file_path = "PXL_20230526_061757514.MP.jpg"       # TODO: Upload your profile image to the same folder as this script and update this if it has a different name
 
 with open(profile_image_file_path, "rb") as img_file:
     img = "data:image/png;base64," + base64.b64encode(img_file.read()).decode()
@@ -39,7 +39,7 @@ st.write(f"""
 
 
 # ----- Personal title or short description -----
-current_role = "Current Role and/or Studies or Description"   # TODO: Change this
+current_role = "Lazy student"   # TODO: Change this
 
 st.write(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""", unsafe_allow_html=True)
 
@@ -51,17 +51,17 @@ st.subheader("About Me")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 I am a <Current Role and/or Studies> 
+- 🧑‍💻 I am a lazy student
 
-- 🛩️ prev: <Previous Experience, Background or Studies>
+- 🛩️ prev: Marketing Management
 
-- ❤️ <Your Passion and/or Interests>
+- ❤️ Food
 
-- 🤖 <Your Personal Projects>
+- 🤖 AI Cookbook
 
-- 🏂 <Your Hobbies>
+- 🏂 Cycling
 
-- 📫 How to reach me: <Your Email>
+- 📫 How to reach me: Look at Mail
 
 - 🏠 Barcelona
 """)
