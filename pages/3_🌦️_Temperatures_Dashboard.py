@@ -60,14 +60,11 @@ def create_unique_list(df,filter):
     unique_elements_set = {"Argentina"}
     for element in unique_elements:
         unique_elements_set.add(element)
-    
     if "" in unique_elements_set:
         unique_elements_set.remove("")
     return unique_elements_set
 
-unique_contries = create_unique_list(temps_df,"Country")
-
-unique_countries_list = unique_contries
+unique_countries_list = create_unique_list(temps_df,"Country")
 
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
@@ -170,11 +167,11 @@ if unique_countries_list is not None and len(selected_cities) > 0:
     for city in selected_cities:
         city_df = temps_df[temps_df["City"] == city]                                                # TODO
         city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]   # TODO
-        plt.hist(city_df_period["AvgTemperatureCelsius"], label=city, bins=20, alpha=0.8)           # TODO
+        plt.hist(city_df_period["AvgTemperatureCelsius"], label=city, bins=20)           # TODO
 
-    plt.title("Temperatures in selected cities")   # TODO
-    plt.xlabel("Temperatur")  # TODO
-    plt.ylabel("Frequency")  # TODO
+    #plt.title("Temperatures in selected cities")    # TODO
+    #plt.xlabel("Temperatur")                        # TODO
+    #plt.ylabel("Frequency")                         # TODO
 
     plt.legend()
 
