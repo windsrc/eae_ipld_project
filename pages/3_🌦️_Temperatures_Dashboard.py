@@ -61,7 +61,7 @@ unique_elements_set = {"Argentina"}
 for element in unique_elements:
     unique_elements_set.add(element)
 
-unique_countries_list = unique_elements_set
+unique_countries_list = None
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
 min_date = None
