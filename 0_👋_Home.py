@@ -11,7 +11,7 @@ st.set_page_config(
 
 # ----- Left menu -----
 with st.sidebar:
-    st.image("eae_img.png", width=200)
+    st.image("PXL_20230526_061757514.MP.jpg", width=200)
     st.header("Introduction to Programming Languages for Data")
     st.write("###")
     st.write("***Final Project - Dec 2023***")
