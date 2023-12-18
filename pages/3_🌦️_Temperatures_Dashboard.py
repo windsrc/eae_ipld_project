@@ -8,7 +8,7 @@ import streamlit as st
 
 # ----- Page configs -----
 st.set_page_config(
-    page_title="<Your Name> Portfolio",
+    page_title="<Christopher's Portfolio",
     page_icon="📊",
 )
 
