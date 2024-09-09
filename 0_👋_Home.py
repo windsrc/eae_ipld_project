@@ -61,7 +61,7 @@ st.write("""
 
 - 🏂 Cycling
 
-- 📫 How to reach me: Look at Mail
+- 📫 How to reach me: [Linkedin] (www.linkedin.com/in/christopher-windsor-aaa636135) 
 
 - 🏠 Barcelona
 """)
