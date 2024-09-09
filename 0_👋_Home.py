@@ -15,7 +15,7 @@ with st.sidebar:
     st.header("Introduction to Programming Languages for Data")
     st.write("###")
     st.write("***Final Project - Dec 2023***")
-    st.write("**Author:** Christopher Windsor")
+    st.write("**Author:** [Christopher Windsor] (https://github.com/windsrc)")
     st.write("**Instructor:** [Enric Domingo](https://github.com/enricd)")
 
 
@@ -61,7 +61,7 @@ st.write("""
 
 - 🏂 Cycling
 
-- 📫 How to reach me: [Linkedin](www.linkedin.com/in/christopher-windsor-aaa636135) 
+- 📫 How to reach me: [Linkedin](https://linkedin.com/in/christopher-windsor-aaa636135) 
 
 - 🏠 Barcelona
 """)
